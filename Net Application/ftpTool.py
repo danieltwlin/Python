@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 #=== ftp Tool ================================
-# Date   : 2019.12.11
+# Date   : 2019.12.12
 # Author : daniel
 # Caption: FTP login,Download,Upload Tool
 #============================================
@@ -8,22 +8,24 @@ import os
 import sys
 
 # FTP操作
-import ftplib
+from ftplib import FTP
 
 class FtpTool():
 	def __init__(self, host,username,password):
-		f = ftplib.FTP(host)  # 實例化FTP對象
+		''' FTP 登入 '''		
+		f = FTP(host)  # 實例化FTP對象
+		f.connect(host,21) # 連線
 		f.login(username, password)  # 登錄
-		self.f = f
+		f.set_pasv(False)
+		
 		## 獲取當前路徑
-		#pwd_path = f.pwd()
-		#print("FTP當前路徑:", pwd_path)	
-
-	def ftp_login(self,host,username,password):
-		''' FTP 登入 '''
-		f = self.f
-		f = ftplib.FTP(host)  # 實例化FTP對象
-		f.login(username, password)  # 登錄
+		pwd_path = f.pwd()
+		print("FTP當前路徑:", pwd_path)
+		## list directory contents
+		files = f.retrlines('LIST')           
+		print("FTP當前檔案:", files)
+		
+		self.f = f
 
 	def ftp_download(self,file_remote, file_local,bufsize = 1024):
 		'''以二進制形式下載文件'''
