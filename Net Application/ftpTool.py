@@ -48,6 +48,16 @@ class FtpTool():
 		f.storbinary('STOR ' + file_remote, fp, bufsize)
 		fp.close()
 		
+	def ftp_dir(self):
+		'''顯示目錄下文件信息'''
+		f = self.f
+		return f.dir()
+		
+	def ftp_delete(self,filename):
+		'''刪除遠程文件'''
+		f = self.f
+		f.delete(filename)
+		
 	def ftp_close(self):
 		f = self.f
 		f.quit()
@@ -63,13 +73,15 @@ if __name__ == '__main__':
 	
 	## 下載
 	file_remote = '1.txt'
-	file_local  = 'D:\\test_data\\download.txt'
+	file_local  = 'D:\\test_data\\download.txt'	
 	f.ftp_download(file_remote,file_local)
 	
 	# 上傳
 	file_remote = 'upload.txt'
 	file_local  = 'D:\\test_data\\2.txt'
 	f.ftp_upload(file_remote,file_local)
+	
+	#print(os.getcwd()+'\\'+filename)	
 	
 	# 結束
 	f.ftp_close()
