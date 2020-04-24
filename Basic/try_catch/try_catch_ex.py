@@ -4,7 +4,7 @@ try:
 
 	raise BaseException("錯誤原因")   # raise ErrorType(" Error Message ")
   
-except Exception,ex:
+except(Exception,ex):
 
 	print(Exception,":",ex)
 
