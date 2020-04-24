@@ -1,5 +1,8 @@
 from dingtalkchatbot.chatbot import DingtalkChatbot
 
+# Must install DingtalkChatbot 
+# pip install DingtalkChatbot
+
 #WebHook地址
 webhook = 'https://oapi.dingtalk.com/robot/send?access_token=943d6b80848c94cb473d1e11234567890'
 
