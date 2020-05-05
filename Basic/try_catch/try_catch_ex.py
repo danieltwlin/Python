@@ -11,12 +11,11 @@ raise RuntimeError('testError')
 
 
 
-
 # 人工產生異常
 try:
 	raise BaseException("錯誤原因")   # raise ErrorType(" Error Message ")  
-except(Exception,ex):
-	print(Exception,":",ex)
+except Exception as e:
+    	print(e)
 
 
 # 斷言
