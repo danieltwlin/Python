@@ -8,10 +8,10 @@ starttime = datetime.datetime.now()
 #time.sleep(2)
 
 
-# code
+# rsync code
 os.system('sh nasrsync.sh')
 
-# data
+# rsync data
 #os.system('sh nasrsync2.sh')
 
 
