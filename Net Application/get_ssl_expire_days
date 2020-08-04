@@ -7,10 +7,10 @@ from datetime import datetime
 def get_ssl_expire_time_difference(base_url):
 
         #some site without http/https in the path
-        base_url = 'CHANGE_ME_TO_YOUR_SITE'
+        base_url = base_url
         port = '443'
 
-        base_url='ies.habook.com.cn'
+        #base_url='ies.habook.com.cn'  # test
 
         hostname = base_url
         context = ssl.create_default_context()
