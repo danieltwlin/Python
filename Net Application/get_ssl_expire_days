@@ -1,0 +1,60 @@
+from urllib.request import Request, urlopen, ssl, socket
+from urllib.error import URLError, HTTPError
+import json
+from pprint import pprint
+from datetime import datetime
+
+def get_ssl_expire_time_difference(base_url):
+
+        #some site without http/https in the path
+        base_url = 'CHANGE_ME_TO_YOUR_SITE'
+        port = '443'
+
+        base_url='ies.habook.com.cn'
+
+        hostname = base_url
+        context = ssl.create_default_context()
+
+        with socket.create_connection((hostname, port)) as sock:
+                with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+                        #print(ssock.version())
+                        data = json.dumps(ssock.getpeercert())
+
+        # convert to dict type
+        data2 = json.loads(data)
+        #print(type(data2)
+
+        # Get Expire Date
+        expire = data2['notAfter']
+
+        # GMT String To GMT Time
+        #dateString = "Oct 28 23:59:59 2020 GMT"
+        dateString = expire
+        dateFormatter = "%b %d %H:%M:%S %Y GMT"
+
+        expire_time = datetime.strptime(dateString, dateFormatter)
+        #print(expire_time)
+
+        # Get Time Now
+        t = datetime.now()
+
+        # Calculate Time Difference
+
+        d1 = expire_time
+        d2 = t
+        #d2 = datetime(2020, 12, 1) # for test
+
+        dayCount = (d1 - d2).days
+        #print( dayCount )
+
+        return dayCount
+        
+if __name__ == '__main__':
+
+        # call fun
+        base_url = "google.com"
+        days = get_ssl_expire_time_difference(base_url)
+
+        print( base_url + ' expire difference : ' + str(days) + ' days')
+
+
