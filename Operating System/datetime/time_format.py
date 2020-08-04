@@ -11,4 +11,5 @@ print(datetime.strptime(dateString, dateFormatter))
 
 x = datetime.now()       #現在時間
 print(x.strftime("%Y-%m-%d %H:%M:%S"))
+
 # x = datetime(2018, 6, 1)    # 設定 datetime 物件的時間
