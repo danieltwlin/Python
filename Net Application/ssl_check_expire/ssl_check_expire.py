@@ -1,3 +1,4 @@
+# coding=utf-8
 from urllib.request import Request, urlopen, ssl, socket
 from urllib.error import URLError, HTTPError
 import json
@@ -10,6 +11,7 @@ from time import sleep
 Check websit ssl expire,and send dingding msg
 
 '''
+# get ssl expire time difference
 def get_ssl_expire_time_difference(base_url):
 
 	#some site without http/https in the path
@@ -63,15 +65,15 @@ def get_ssl_expire_time_difference(base_url):
 
 	return dayCount,expire_date
 
-
+# send ding msg
 def ddmsg(msg, hookid=1):
 
 	if(hookid == 1):
 		#WebHook地址
-		webhook = 'https://oapi.dingtalk.com/robot/send?access_token=XXXXX'
-	if(hookid == 2):
+		webhook = 'https://oapi.dingtalk.com/robot/send?access_token=XXXX1'
+	if(hookid == 2): #  正式群組
 		#WebHook地址
-    webhook = 'https://oapi.dingtalk.com/robot/send?access_token=XXXXX'
+                webhook = 'https://oapi.dingtalk.com/robot/send?access_token=XXXX2'
 
 	# 初始化机器人小丁
 	xiaoding = DingtalkChatbot(webhook)
@@ -79,6 +81,7 @@ def ddmsg(msg, hookid=1):
 	#Text消息@所有人
 	xiaoding.send_text(msg=msg, is_at_all=True)
 
+# ssl check 
 def url_ssl_check( url ):
 
 	#base_url = "ies.aclass.com.tw"
@@ -87,17 +90,17 @@ def url_ssl_check( url ):
 
 	days, expire_date = get_ssl_expire_time_difference(base_url)
 
-	msg1 =  base_url + ' \n Expire Date : ' + expire_date
-	msg1 =  msg1 + ' \n Expire days : ' + str(days) + ' days'
+	msg1 =  base_url + ' \nExpire Date : ' + expire_date
+	msg1 =  msg1 + ' \nExpire days : ' + str(days) + ' days \n'
 	msg2 =''
 
 	if( days <= 0 ):
-		msg2 = ' Alert : it was expired !!!! \n'
+		msg2 = '\n==== 憑證已經過期 ==== \n'
 
 	if( (days > 0) and (days < 14)  ):
-		msg2 = ' Alert : it is expiring soon !!!!\n'
+		msg2 = '\n==== 憑證即將過期 ==== \n'
 
-	msg = msg1 + '\n' + msg2
+	msg = msg2 + '\n' + msg1
 	print(msg)
 
 	if( len(msg2)>0):
@@ -110,5 +113,3 @@ if __name__ == '__main__':
 	if(1):
 		url = "google.com"
 		url_ssl_check(url)
-    
-    
