@@ -17,3 +17,10 @@
 	# 選中	
 	selects.select_by_index(id)
  
+
+# 查看選中項目
+# for selectx in selects.all_selected_options:
+# 用文字選擇
+# selects.select_by_visible_text("daniel_test(qa1234)")	
+
+
