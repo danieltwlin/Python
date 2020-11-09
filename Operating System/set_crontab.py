@@ -2,6 +2,8 @@ import os
 from crontab import CronTab
 import datetime
 
+# pip install python-crontab
+
 def log_time():
 
         x = datetime.datetime.now()
