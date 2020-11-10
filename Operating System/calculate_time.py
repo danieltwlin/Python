@@ -4,8 +4,6 @@ import datetime,time
 # Start Time
 starttime = datetime.datetime.now()
 
-#long running
-
 
 #### DO SOMETHING ###
 time.sleep(10)
