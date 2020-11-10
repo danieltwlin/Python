@@ -1,5 +1,5 @@
-import datetime,time
 import os
+import datetime,time
 
 # Start Time
 starttime = datetime.datetime.now()
