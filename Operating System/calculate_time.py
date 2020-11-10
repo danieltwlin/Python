@@ -5,14 +5,12 @@ import os
 starttime = datetime.datetime.now()
 
 #long running
-#time.sleep(2)
 
 
+#### DO SOMETHING ###
+time.sleep(10)
 # rsync code
 os.system('sh nasrsync.sh')
-
-# rsync data
-#os.system('sh nasrsync2.sh')
 
 
 # Get Total Time
