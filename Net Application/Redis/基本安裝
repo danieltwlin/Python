@@ -1,0 +1,45 @@
+*安裝
+sudo apt-get install redis-server
+
+*測試
+redis-cli
+
+*啟動、重啟、關閉 Redis Server
+sudo service redis-server start
+sudo service redis-server restart
+sudo service redis-server stop
+
+*redis-cli 若能連接Redis Server，可以下達簡單的存取指令測試資料庫是否正常運作。
+set foo bar
+get foo
+
+*Redis 操作
+$　redis-cli　
+$　127.0.0.1:6379>
+
+*SADD
+redis 127.0.0.1:6379> SADD myset "hello"
+(integer) 1
+redis 127.0.0.1:6379> SADD myset "foo"
+(integer) 1
+redis 127.0.0.1:6379> SADD myset "hello"
+(integer) 0
+redis 127.0.0.1:6379> SMEMBERS myset
+1) "hello"
+2) "foo"
+
+Sadd 命令将一个或多个成员元素加入到集合中，已经存在于集合的成员元素将被忽略。
+假如集合 key 不存在，则创建一个只包含添加的元素作成员的集合。
+Smembers 會返回集合中的所有的成员。
+
+RPUSH
+redis 127.0.0.1:6379> RPUSH mylist "hello"
+(integer) 1
+redis 127.0.0.1:6379> RPUSH mylist "foo"
+(integer) 2
+redis 127.0.0.1:6379> RPUSH mylist "bar"
+(integer) 3
+redis 127.0.0.1:6379> LRANGE mylist 0 -1
+1) "hello"
+2) "foo"
+3) "bar"
