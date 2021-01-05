@@ -15,3 +15,10 @@ print str[-3:] #擷取倒數第三位到結尾
 # string format
 token,deviceId = regist()
 print("token: {token}  \n\n deviceId : {deviceId} ".format(token = token,deviceId=deviceId) )
+
+
+x = 10
+y = 27
+
+print(f'x + y = {x + y}')
+# 37
