@@ -9,3 +9,9 @@ print str[-1] #擷取倒數第一個字元
 print str[::-1] #創造一個與原字串順序相反的字串
 print str[-3:-1] #擷取倒數第三位與倒數第一位之前的字元
 print str[-3:] #擷取倒數第三位到結尾
+
+
+
+# string format
+token,deviceId = regist()
+print("token: {token}  \n\n deviceId : {deviceId} ".format(token = token,deviceId=deviceId) )
