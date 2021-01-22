@@ -19,9 +19,8 @@ ssh.close()
 
 #  pip install paramiko
 
-# 切换、查看目录
-#   getcwd()：查看当前所在目录
-#   chdir(path)：切换当前目录
-# 修改文件或者目录的权限、用户组
-#   chmod(path , mode) ：修改目录或者文件权限
-#   chown(path,uid ,gid)：修改目录或者文件的用户组
+'''
+   SSHClient.exec_command 在单独的“exec”通道中执行每个命令。各个命令在各自的环境中运行。
+   因此，如果执行cd命令，则对后续命令完全没有影响。它们将再次从用户的主目录开始。
+   如果要实现交互式shell session ，请使用 SSHClient.invoke_shell 。
+'''
