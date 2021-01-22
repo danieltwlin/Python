@@ -18,3 +18,10 @@ ssh.close()
 
 
 #  pip install paramiko
+
+# 切换、查看目录
+#   getcwd()：查看当前所在目录
+#   chdir(path)：切换当前目录
+# 修改文件或者目录的权限、用户组
+#   chmod(path , mode) ：修改目录或者文件权限
+#   chown(path,uid ,gid)：修改目录或者文件的用户组
