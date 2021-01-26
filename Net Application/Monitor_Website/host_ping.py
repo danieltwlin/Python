@@ -4,7 +4,7 @@ import sys
 iplist = list()
 ip = '192.168.1.228'   # or domain like 'http://www.goog.com'
 
-result =  os.system('ping -c 1 -w 3 %s'%ip) #    -c  times, -w wait second
+result =  os.system('ping -c 1 -W 3 %s'%ip) #    -c  times, -W wait second
 
 print('backinfo: '+ str(result ))
 #print(type(result))
