@@ -1,3 +1,4 @@
+# -*- coding= UTF-8 -*-
 # 以 with 開檔並寫入檔案
 with open('file.txt', 'w') as f:
   f.write('Hello, world!')
