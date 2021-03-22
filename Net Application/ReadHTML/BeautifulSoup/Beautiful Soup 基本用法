@@ -31,8 +31,7 @@ soup = BeautifulSoup(html_doc, 'html.parser')
 # 輸出排版後的 HTML 程式碼
 print(soup.prettify())
 
-取得節點文字內容
-
+## 取得節點文字內容
 
 # 網頁標題 HTML 標籤
 title_tag = soup.title
@@ -47,5 +46,30 @@ print(title_tag.string)
 
 輸出
 Hello World
+
+## 搜尋節點
+
+# 所有的超連結
+a_tags = soup.find_all('a')
+for tag in a_tags:
+  # 輸出超連結的文字
+  print(tag.string)                         # 標籤中的文字
+
+輸出
+Link 1
+Link 2
+
+
+## 抓取表格內容
+
+soup = BeautifulSoup(r.text) 
+
+div = soup.find('div', class_='mainRight').find_all('div')[1] 
+table = div.find('table', recursive=False) 
+for row in table.find_all('tr', recursive=False): 
+    for cell in row('td', recursive=False): 
+     print cell.text.strip()
+
+
 
 
