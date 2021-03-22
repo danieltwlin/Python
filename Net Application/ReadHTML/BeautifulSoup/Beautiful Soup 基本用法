@@ -1,0 +1,51 @@
+
+# 讀取 HTML 檔的範例
+path = './web/new_index.html'
+
+with open(path, 'r',encoding = 'utf8') as f:
+  Soup = BeautifulSoup(f.read(), 'lxml')
+
+
+# 引入 Beautiful Soup 模組
+from bs4 import BeautifulSoup
+
+# 原始 HTML 程式碼
+html_doc = """
+<html><head><title>Hello World</title></head>
+<body><h2>Test Header</h2>
+<p>This is a test.</p>
+<a id="link1" href="/my_link1">Link 1</a>
+<a id="link2" href="/my_link2">Link 2</a>
+<p>Hello, <b class="boldtext">Bold Text</b></p>
+</body></html>
+"""
+
+# 以 Beautiful Soup 解析 HTML 程式碼
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+
+這裡的 soup 就是解析完成後，所產生的結構樹物件，接下來所有資料的搜尋、萃取等操作都會透過這個物件來進行。
+首先我們可以將完整個 HTML 結構經過排版後輸出，觀察整份文件的輪廓：
+
+
+# 輸出排版後的 HTML 程式碼
+print(soup.prettify())
+
+取得節點文字內容
+
+
+# 網頁標題 HTML 標籤
+title_tag = soup.title
+print(title_tag)
+
+輸出
+<title>Hello World</title>
+
+
+# 網頁的標題文字
+print(title_tag.string)
+
+輸出
+Hello World
+
+
