@@ -10,10 +10,10 @@ def execCmd(cmd):
 # get pod id
 def get_pod(cmd):
 
+	#print(cmd)
 	#ret  = execCmd('kubectl get pods | grep adas')
-        ret  = execCmd(cmd)
-
-	print( ret)
+	ret  = execCmd(cmd)
+	#print( ret)
 
 	lst1 = ret.split()
 	#print(lst1)
@@ -27,7 +27,7 @@ def get_pod(cmd):
 def get_pod_process_status(cmd, key):
 
 	print(cmd)
-	#ret  = execCmd("kubectl exec podid '/opt/lampp/lampp status)")
+        #ret  = execCmd("kubectl exec podid '/opt/lampp/lampp status)")
 	ret = execCmd(cmd)
 	print( ret)
 
@@ -40,6 +40,13 @@ def get_pod_process_status(cmd, key):
 
 	return status
 
+def start_pod_apache(pod,cmd):
+
+	kubecmd = 'kubectl exec ' + pod + ' -- ' + cmd
+	print( kubecmd +'\n')
+	ret = execCmd(kubecmd)
+	#print(ret)
+	return ret
 
 '''	Check adas pod	'''
 if __name__ == '__main__':
@@ -56,6 +63,11 @@ if __name__ == '__main__':
 	if( status):
 		print('ADAS job is Ok!')
 	else:
-		alertMsg = 'ADAS job is Error!'
+		cmd = '/opt/lampp/lampp start'
+		ret = start_pod_apache(pod,cmd)
+		alertMsg = 'ADAS job is Error!, But alday execute ADAS job start command !'
 		print(alertMsg)
+		print('\n' + ret)
+
 		raise RuntimeError(alertMsg)
+	
