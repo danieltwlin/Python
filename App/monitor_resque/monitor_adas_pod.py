@@ -10,7 +10,8 @@ def execCmd(cmd):
 # get pod id
 def get_pod(cmd):
 
-	ret  = execCmd('kubectl get pods | grep adas')
+	#ret  = execCmd('kubectl get pods | grep adas')
+        ret  = execCmd(cmd)
 
 	print( ret)
 
@@ -58,5 +59,3 @@ if __name__ == '__main__':
 		alertMsg = 'ADAS job is Error!'
 		print(alertMsg)
 		raise RuntimeError(alertMsg)
-
-
