@@ -40,6 +40,7 @@ def get_pod_process_status(cmd, key):
 
 	return status
 
+# atart pod apache
 def start_pod_apache(pod,cmd):
 
 	kubecmd = 'kubectl exec ' + pod + ' -- ' + cmd
