@@ -1,8 +1,6 @@
 # 用 with 寫入檔案
 with open('/opt/test.txt', 'w') as f:
-    f.write('Hello, world!')
-
-   
+    f.write('Hello, world!')  
     
     
 # 設定編碼 
