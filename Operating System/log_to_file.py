@@ -13,7 +13,7 @@ def log_file(file,log):
         with open(file, 'a') as f:
                 #f.write('Hello, world!')
                 f.write(dt_now + '\n')
-                f.write(log + '\n')
+                f.write(log + '\n\n')
 
 
 if __name__=='__main__':
