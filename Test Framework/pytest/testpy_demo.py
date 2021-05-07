@@ -13,3 +13,6 @@ def test_sample3():
 @pytest.mark.xfail()
 def test_sample4():
 	assert 1 == 1
+	
+# pytest testpy_demo.py
+# py.test --version
