@@ -17,5 +17,9 @@ print(stdout.read().decode('utf-8'))
 
 # print(stdout.read().decode('utf-8', 'ignore'))
 
+# ret = ssh_stdout.read().decode('ascii').strip('')
+# print(ret)
+
+
 # 关闭SSHClient
 ssh.close()
