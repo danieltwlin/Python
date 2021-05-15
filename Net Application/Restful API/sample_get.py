@@ -10,7 +10,7 @@ def main():
 	response = requests.get(url).json()
 	
 	print( response)
-  print( response.status_code)
+	print( response.status_code)
 	
 	#assert "200" not in Response Code
 	assert response["code"] != "200"
