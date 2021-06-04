@@ -2,6 +2,7 @@
 
 import mysql.connector
 
+# Connect , default port = 3306
 mydb = mysql.connector.connect(
   host="192.168.0.233",
   user="daniel",
@@ -12,7 +13,7 @@ mydb = mysql.connector.connect(
 print(mydb)
 mycursor = mydb.cursor()
 
-# query
+# Query
 if(0):
 
 	mycursor.execute("SELECT * FROM AppStoreVersion")
