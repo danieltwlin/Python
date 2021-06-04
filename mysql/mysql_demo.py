@@ -41,3 +41,11 @@ if(0):
 	mydb.commit()
 
 	print(mycursor.rowcount, "record(s) affected")	
+	
+	
+# Delete
+if(0):	
+        sql = "DROP TABLE IF EXISTS student"
+        mycursor.execute(sql)
+
+	
