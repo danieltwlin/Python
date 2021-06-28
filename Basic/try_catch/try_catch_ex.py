@@ -6,10 +6,7 @@ raise语句
 主动抛出异常终止程序
 raise 异常名称(‘异常描述’)
 '''
-
 raise RuntimeError('testError')
-
-
 
 # 人工產生異常
 try:
