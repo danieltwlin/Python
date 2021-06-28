@@ -1,5 +1,18 @@
 import time
 import os
+
+from datetime import datetime
+
+# Strftime
+now = datetime.now() # current date and time
+
+date_time = now.strftime("%Y-%m-%d, %H:%M:%S")
+print("date and time:",date_time)
+
+
+
+
+# 手工
 import datetime
 
 def get_time():
