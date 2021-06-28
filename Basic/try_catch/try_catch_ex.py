@@ -14,7 +14,6 @@ try:
 except Exception as e:
     	print(e)
 
-
 # 斷言
 self.assertEqual(ret,'OK')
 
