@@ -15,6 +15,14 @@ if(1):
 
         mycursor = mydb.cursor()
 
+#  確認連線正常        
+if(1):
+        # 查詢資料庫時間
+        mycursor.execute("SELECT NOW();")
+        record = mycursor.fetchone()
+        print("目前資料庫的時間：", record)
+
+# 刪除已存在資料庫
 if(1):
         # Drop DB If Exist
         mycursor.execute("DROP DATABASE IF EXISTS  DB1;")
