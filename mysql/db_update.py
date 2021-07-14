@@ -1,3 +1,7 @@
+import os
+import mysql.connector
+from time import sleep
+from time import time
 
 
 # Update DB
