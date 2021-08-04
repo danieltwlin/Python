@@ -12,3 +12,4 @@ logging.critical('critical message')
 
 
 # logging.basicConfig(level=logging.DEBUG, filename='myLog.log', filemode='w', format=FORMAT)
+# level 設成 INFO, 則 Debug 不會輸出
