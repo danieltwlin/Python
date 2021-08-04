@@ -2,6 +2,7 @@ import logging
 
 FORMAT = '%(asctime)s %(message)s'
 logging.basicConfig(level=logging.DEBUG, filename='myLog.log',format=FORMAT)
+# logging.basicConfig(level=logging.DEBUG,format=FORMAT)  # 不要logfile，就不要設定 filename
 
 logging.debug('debug message')
 logging.info('info message')
