@@ -1,0 +1,9 @@
+import psutil
+process_name = "System" 
+for proc in psutil.process_iter(): 
+    process = psutil.Process(proc.pid)# Get the process info using PID
+    pname = process.name()# Here is the process name
+    #print pname
+    if pname == process_name: 
+        print ("have") 
+    else: print ("Dont have")
